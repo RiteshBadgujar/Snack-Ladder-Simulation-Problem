@@ -7,6 +7,10 @@ public class SnackLadderSimulaion {
 	private  int playerPosition=0;
 	private int die;
 	
+	private static final int NOPLAY=0;
+	private static final int LADDER=1;
+	private static final int SNAKE=2;
+	
 	public void ShowStatus() {
 		
 		System.out.println("Player Position = "+playerPosition);
@@ -18,6 +22,29 @@ public class SnackLadderSimulaion {
 		
 		die=random.nextInt(6)+1;
 		System.out.println("Die NO = "+die);
+		int option=random.nextInt(2);
+		System.out.println("Option = "+option);
+		
+		switch(option) {
+		
+		case NOPLAY:
+			playerPosition = playerPosition;
+			break;
+			
+		case LADDER:
+			playerPosition = playerPosition +die;
+			break;
+			
+		case SNAKE:
+			playerPosition = playerPosition - die;
+			
+				if(playerPosition < 0) {
+					
+					playerPosition=0;	
+				}
+			break;
+			
+		}
 		
 	}
 
@@ -29,6 +56,8 @@ public class SnackLadderSimulaion {
 	  
 	  player1.ShowStatus();
 	  player1.Playgame();
+	  player1.ShowStatus();
+	  
 	}
 
 }

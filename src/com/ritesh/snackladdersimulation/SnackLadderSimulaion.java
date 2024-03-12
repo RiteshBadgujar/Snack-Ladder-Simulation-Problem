@@ -11,10 +11,12 @@ public class SnackLadderSimulaion {
 	private static final int LADDER=1;
 	private static final int SNAKE=2;
 	private static final int WINNIGPOSITION=100;
+	private  int totaldie=0;
 	
 	public void ShowStatus() {
 		
 		System.out.println("Player Position = "+playerPosition);
+		//System.out.println("Total die = "+totaldie);
 	}
 	
 	public void Playgame() {
@@ -22,6 +24,7 @@ public class SnackLadderSimulaion {
 		Random random = new Random();
 		 
 		while(playerPosition < WINNIGPOSITION) {
+			 totaldie = totaldie + die;
 			
 			die=random.nextInt(6)+1;
 			System.out.println("Die NO = "+die);
@@ -57,7 +60,7 @@ public class SnackLadderSimulaion {
 		 }
 		ShowStatus();
 		}
-		
+		System.out.println("\nTotal die = "+totaldie);	
 	}
 
 	public static void main(String[] args) {
@@ -66,9 +69,7 @@ public class SnackLadderSimulaion {
 	  
 	  SnackLadderSimulaion  player1 = new  SnackLadderSimulaion();
 	  
-	  player1.ShowStatus();
 	  player1.Playgame();
-	  player1.ShowStatus();
 	  
 	}
 

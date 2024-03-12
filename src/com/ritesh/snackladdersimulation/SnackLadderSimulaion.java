@@ -38,6 +38,11 @@ public class SnackLadderSimulaion {
 			
 		case LADDER:
 			playerPosition = playerPosition + die;
+			if(playerPosition > WINNIGPOSITION) {
+				
+				playerPosition=playerPosition-die;
+			}
+			
 			break;
 			
 		case SNAKE:

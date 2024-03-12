@@ -4,12 +4,13 @@ import java.util.Random;
 
 public class SnackLadderSimulaion {
 	
-	private  int playerPosition=0;
+	private int playerPosition=0;
 	private int die;
 	
 	private static final int NOPLAY=0;
 	private static final int LADDER=1;
 	private static final int SNAKE=2;
+	private static final int WINNIGPOSITION=100;
 	
 	public void ShowStatus() {
 		
@@ -19,12 +20,16 @@ public class SnackLadderSimulaion {
 	public void Playgame() {
 		
 		Random random = new Random();
-		
-		die=random.nextInt(6)+1;
-		System.out.println("Die NO = "+die);
-		int option=random.nextInt(2);
-		System.out.println("Option = "+option);
-		
+		 
+		while(playerPosition < WINNIGPOSITION) {
+			
+			die=random.nextInt(6)+1;
+			System.out.println("Die NO = "+die);
+			
+			int option=random.nextInt(2);
+			System.out.println("Option = "+option);
+			System.out.println("---------------");
+			
 		switch(option) {
 		
 		case NOPLAY:
@@ -32,7 +37,7 @@ public class SnackLadderSimulaion {
 			break;
 			
 		case LADDER:
-			playerPosition = playerPosition +die;
+			playerPosition = playerPosition + die;
 			break;
 			
 		case SNAKE:
@@ -44,6 +49,8 @@ public class SnackLadderSimulaion {
 				}
 			break;
 			
+		 }
+		ShowStatus();
 		}
 		
 	}
